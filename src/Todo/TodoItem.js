@@ -3,25 +3,28 @@ import PropTypes from "prop-types";
 import Context from "../context";
 
 function TodoItem({ todo, index, onChange }) {
-    const { removeTodo } = useContext(Context)
-    const classes = []
+  const { removeTodo } = useContext(Context);
+  const classes = [];
 
-    if (todo.completed) {
-        classes.push('done')
-    }
+  if (todo.completed) {
+    classes.push("done");
+  }
 
-    return (
+  return (
     <li className="li-list">
-      <span className={classes.join(' ')}>
-        <input type="checkbox"
-        checked={todo.completed}
-        onChange={() => onChange(todo.id)}
+      <span className={classes.join(" ")}>
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => onChange(todo.id)}
         />
-        <strong>{index + 1.}</strong>
-&nbsp;
+        <strong>{index + 1}</strong>
+        &nbsp;
         {todo.title}
       </span>
-      <button className="button" onClick={() => removeTodo(todo.id)}>&times;</button>
+      <button className="button" onClick={() => removeTodo(todo.id)}>
+        &times;
+      </button>
     </li>
   );
 }
